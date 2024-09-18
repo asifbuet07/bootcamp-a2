@@ -39,19 +39,19 @@
         <img src="assets/logos/logo.png" alt="Logo" class="w-12">
         <a class="btn btn-ghost text-xl">Food Heaven</a>
       </div>
-      <div class="navbar-center hidden lg:flex ">
-        <ul class="menu menu-horizontal px-1 space-x-2">
-          <li class="bg-gray-200"><a>Potato</a></li>
-          <li class="bg-gray-200"><a>Soup</a></li>
-          <li class="bg-gray-200"><a>Chicken</a></li>
-          <li class="bg-gray-200"><a>Beef</a></li>
+      <div class="navbar-center hidden lg:flex">
+        <ul class="menu menu-horizontal px-1 space-x-2 gap-8">
+          <li id="menu-potato" class="bg-gray-200 text-black font-bold text-base" onclick="loadFood('potato')"><a>Potato</a></li>
+          <li id="menu-soup" class="bg-gray-200 text-black font-bold text-base" onclick="loadFood('soup')"><a>Soup</a></li>
+          <li id="menu-chicken" class="bg-gray-200 text-black font-bold text-base" onclick="loadFood('chicken')"><a>Chicken</a></li>
+          <li id="menu-beef" class="bg-gray-200 text-black font-bold text-base" onclick="loadFood('beef')"><a>Beef</a></li>
         </ul>
       </div>
       <div class="navbar-end">
         <div class="form-control">
-          <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto rounded-2xl" />
+          <input id="search-input" type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto rounded-2xl" />
         </div>
-        <i class="fa-solid fa-magnifying-glass -ml-6 mr-2"></i>
+        <i onclick="loadFood()" class="fa-solid fa-magnifying-glass -ml-6 mr-2"></i>
       </div>
     </div>
     <!-- Navbar end -->
@@ -90,12 +90,35 @@
     <!-- Carousel end-->
 
     <!-- Food List start -->
+    <main class="container mx-auto mt-8">
+
+      <!-- result  -->
+      <section>
+          <div id="result-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14">
+          </div>
+
+      </section>
+
+      <!-- Open the modal using ID.showModal() method -->
+      
+      <dialog id="show_meal_details" class="modal modal-bottom sm:modal-middle">
+          <div class="modal-box w-11/12 max-w-5xl">
+              <div id="meal-details-cotainer">
+              </div>
+              <div class="modal-action">
+                  <form method="dialog">
+                      <button class="btn">Close</button>
+                  </form>
+              </div>
+          </div>
+      </dialog>
+  </main>
     <!-- Food List end -->
 
     <!-- FAQ start -->
-     <section class="my-6 mx-36">
-     <h1 class="text-center text-3xl my-6"> FAQ Section </h1>
-    <div class="join join-vertical w-full">
+     <section class="mx-36 my-24">
+     <h1 class="text-black font-bold text-center text-3xl my-6"> Frequently Asked Questions </h1>
+    <div class="join join-vertical w-full text-black bg-slate-300">
       <div class="collapse collapse-arrow join-item border-base-300 border">
         <input type="radio" name="my-accordion-4" checked="checked" />
         <div class="collapse-title text-xl font-medium">At what times can we have lunch and dinner in the restaurant?</div>
@@ -197,5 +220,6 @@
  
 </footer>
 <!-- Footer end -->
+<script src="scripts/food.js"></script>
   </body>
 </html>
