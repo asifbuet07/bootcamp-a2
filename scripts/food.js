@@ -1,41 +1,43 @@
-let lastSelectedMenu = "";
-
 const loadFood = (category) => {
-    // let inputText = document.getElementById("search-input").value;
-
-    // console.log(category);
-    // let menuPotato = document.getElementById("menu-potato");
-    // let menuSoup = document.getElementById("menu-soup");
-    // let menuChicken = document.getElementById("menu-chicken");
-    // let menuBeef = document.getElementById("menu-beef");
-
-    // menuPotato.classList.remove();
-    // menuSoup.classList.remove();
-    // menuChicken.classList.remove();
-    // menuBeef.classList.remove();
-
-    // menuPotato.classList.add("bg-gray-200 text-black font-bold text-base");
-    // menuSoup.classList.add("bg-gray-200 text-black font-bold text-base");
-    // menuChicken.classList.add("bg-gray-200 text-black font-bold text-base");
-    // menuBeef.classList.add("bg-gray-200 text-black font-bold text-base");
+    let menuPotato = document.getElementById("menu-potato");
+    let menuSoup = document.getElementById("menu-soup");
+    let menuChicken = document.getElementById("menu-chicken");
+    let menuBeef = document.getElementById("menu-beef");
 
     if (category == null || category == undefined) {
         category = "";
     }
     else {
+        switch (category) {
+            case "potato":
+                menuPotato.classList.add("bg-orange-500");
+                menuSoup.classList.remove("bg-orange-500");
+                menuChicken.classList.remove("bg-orange-500");
+                menuBeef.classList.remove("bg-orange-500");
+                break;
+            
+            case "soup":
+                menuPotato.classList.remove("bg-orange-500");
+                menuSoup.classList.add("bg-orange-500");
+                menuChicken.classList.remove("bg-orange-500");
+                menuBeef.classList.remove("bg-orange-500");
+                break;
 
-        if (lastSelectedMenu != "") {
-            console.log("last item selected: " + lastSelectedMenu);
-            let lastSelectedMenuItem = document.getElementById("menu-"+lastSelectedMenu);
-            // lastSelectedMenuItem.classList.remove();
-            lastSelectedMenuItem.classList.add("bg-gray-200");
+            case "chicken":
+                menuPotato.classList.remove("bg-orange-500");
+                menuSoup.classList.remove("bg-orange-500");
+                menuChicken.classList.add("bg-orange-500");
+                menuBeef.classList.remove("bg-orange-500");
+                break;
+            
+            case "beef":
+                menuPotato.classList.remove("bg-orange-500");
+                menuSoup.classList.remove("bg-orange-500");
+                menuChicken.classList.remove("bg-orange-500");
+                menuBeef.classList.add("bg-orange-500");
+                break;
+
         }
-       
-        console.log("Now selected: " + lastSelectedMenu);
-        let selectedMenuItem = document.getElementById("menu-"+category);
-        // selectedMenu.classList.remove();
-        selectedMenuItem.classList.add("bg-orange-500");
-        lastSelectedMenu = category;
     }
     
     let url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${category}`
